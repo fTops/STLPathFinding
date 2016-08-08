@@ -15,14 +15,14 @@ The basic algorithm works like this:
 - Begin with the starting node in the Open Set
 - Find the node with the lowest f cost in the Open Set and terminate if it's the target
 - Otherwise, if the node is not already in the Closed Set insert it
-- Search if possible to traverse to each of its neighbors (up, down, left, right)
+- Search if it's possible to traverse to each of its neighbors (up, down, left, right)
 - If yes and the discovered nodes haven't already been inserted in the Closed Set, insert them to the Open Set
 - Repeat until either the target node is reached or the Open Set empties
 
 ##Implementation
-For the Open Set, because its main purpose is to provide us with the node that has the lowest f cost, the data structure of a min priority queue has been chosen. STL's implementation of a priority queue comes with the caveat that it doesn't provide a way of accessing any other but its top (min or max) element. This makes checking the Open Set for past appearances of a node before it is inserted impossible. This has been taken into account and as such discovered nodes are always inserted in the Open Set. Later, because the priority queue always serves the node with the lowest F cost, the "duplicates" can be discarded safely.
+For the Open Set, because its main purpose is to always provide the node that has the lowest f cost, the data structure of a min priority queue has been chosen. STL's implementation of a priority queue comes with the caveat that it doesn't provide a way of accessing any other but its top (min or max) element. This makes checking the Open Set for past appearances of a node before it is inserted impossible. This has been taken into account and as such discovered nodes are always inserted in the Open Set. Later, because the priority queue always serves the node with the lowest F cost, the "duplicates" can be discarded safely.
 
-Because the Closed Set will be traversed backwards (from target to start) once the search completes succesfully, it makes sense to use a data structure which can insert/delete new elements to/from its front. Thus it was set up as a deque.
+The Closed Set has been set up as a deque. This is because the it will be traversed backwards (from target to start) once the search completes succesfully, so it makes sense to use a data structure which can insert/delete new elements to/from its front.
 
 Finally there's an array in which an indication is saved if a node has already been inserted into the Closed Set.
 
