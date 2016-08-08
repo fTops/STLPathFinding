@@ -1,4 +1,4 @@
-#MultiList
+#STLPathFinding
 
 ##Description
 STLPathFinding is a console application written in **C++** and using **STL** data structures which implements a [pathfinding algorithm](https://en.wikipedia.org/wiki/Pathfinding) of finding the shortest path between two points in a 2D grid. It is based on the common [A* search algorithm](https://en.wikipedia.org/wiki/A*_search_algorithm) and solves the following problem on Kattis: [https://paradox.kattis.com/problems/paradoxpath](https://paradox.kattis.com/problems/paradoxpath)
